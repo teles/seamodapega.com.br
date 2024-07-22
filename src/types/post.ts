@@ -129,5 +129,5 @@ export interface Post {
   classList: string[];
   yoastHead: string;
   yoastHeadJson: YoastHead;
-  links: Links[];
+  links: Links;
 }
