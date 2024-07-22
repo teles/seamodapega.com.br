@@ -17,89 +17,115 @@ interface Excerpt {
 }
 
 interface Meta {
-  recipeRoundupName: string;
-  recipeRoundupDescription: string;
-  footnotes: string;
+  recipeRoundupName?: string | undefined;
+  recipeRoundupDescription?: string | undefined;
+  footnotes?: string | undefined;
 }
 
 interface YoastHead {
-  title: string;
-  description: string;
-  robots: {
-    index: string;
-    follow: string;
-    maxSnippet: string;
-    maxImagePreview: string;
-    maxVideoPreview: string;
-  };
-  canonical: string;
-  ogLocale: string;
-  ogType: string;
-  ogTitle: string;
-  ogDescription: string;
-  ogUrl: string;
-  ogSiteName: string;
-  articlePublishedTime: string;
-  articleModifiedTime: string;
-  ogImage: Array<{
-    width: number;
-    height: number;
-    url: string;
-    type: string;
-  }>;
-  author: string;
-  twitterCard: string;
-  twitterMisc: {
-    escritoPor: string;
-    estTempoDeLeitura: string;
-  };
-  schema: {
-    context: string;
-    graph: Array<{
-      type: string;
-      id: string;
-      url: string;
-      name: string;
-      isPartOf: {
-        id: string;
-      };
-      primaryImageOfPage: {
-        id: string;
-      };
-      image: {
-        id: string;
-      };
-      thumbnailUrl: string;
-      datePublished: string;
-      dateModified: string;
-      author: {
-        id: string;
-      };
-      description: string;
-      breadcrumb: {
-        id: string;
-      };
-      inLanguage: string;
-      potentialAction: Array<{
-        type: string;
-        target: Array<string>;
-      }>;
-    }>;
-  };
+  title?: string | undefined;
+  description?: string | undefined;
+  robots?:
+    | {
+        index?: string | undefined;
+        follow?: string | undefined;
+        maxSnippet?: string | undefined;
+        maxImagePreview?: string | undefined;
+        maxVideoPreview?: string | undefined;
+      }
+    | undefined;
+  canonical?: string | undefined;
+  ogLocale?: string | undefined;
+  ogType?: string | undefined;
+  ogTitle?: string | undefined;
+  ogDescription?: string | undefined;
+  ogUrl?: string | undefined;
+  ogSiteName?: string | undefined;
+  articlePublishedTime?: string | undefined;
+  articleModifiedTime?: string | undefined;
+  ogImage?:
+    | Array<{
+        width?: number | undefined;
+        height?: number | undefined;
+        url?: string | undefined;
+        type?: string | undefined;
+      }>
+    | undefined;
+  author?: string | undefined;
+  twitterCard?: string | undefined;
+  twitterMisc?:
+    | {
+        escritoPor?: string | undefined;
+        estTempoDeLeitura?: string | undefined;
+      }
+    | undefined;
+  schema?:
+    | {
+        context?: string | undefined;
+        graph?:
+          | Array<{
+              type?: string | undefined;
+              id?: string | undefined;
+              url?: string | undefined;
+              name?: string | undefined;
+              isPartOf?:
+                | {
+                    id?: string | undefined;
+                  }
+                | undefined;
+              primaryImageOfPage?:
+                | {
+                    id?: string | undefined;
+                  }
+                | undefined;
+              image?:
+                | {
+                    id?: string | undefined;
+                  }
+                | undefined;
+              thumbnailUrl?: string | undefined;
+              datePublished?: string | undefined;
+              dateModified?: string | undefined;
+              author?:
+                | {
+                    id?: string | undefined;
+                  }
+                | undefined;
+              description?: string | undefined;
+              breadcrumb?:
+                | {
+                    id?: string | undefined;
+                  }
+                | undefined;
+              inLanguage?: string | undefined;
+              potentialAction?:
+                | Array<{
+                    type?: string | undefined;
+                    target?: Array<string> | undefined;
+                  }>
+                | undefined;
+            }>
+          | undefined;
+      }
+    | undefined;
 }
 
 export interface Links {
-  self: Array<{ href: string }>;
-  collection: Array<{ href: string }>;
-  about: Array<{ href: string }>;
-  author: Array<{ embeddable: boolean; href: string }>;
-  replies: Array<{ embeddable: boolean; href: string }>;
-  "version-history": Array<{ count: number; href: string }>;
-  "predecessor-version": Array<{ id: number; href: string }>;
-  "wp:featuredmedia": Array<{ embeddable: boolean; href: string }>;
-  "wp:attachment": Array<{ href: string }>;
-  "wp:term": Array<{ taxonomy: string; embeddable: boolean; href: string }>;
-  curies: Array<{ name: string; href: string; templated: boolean }>;
+  self?: Array<{ href: string }> | undefined;
+  collection?: Array<{ href: string }> | undefined;
+  about?: Array<{ href: string }> | undefined;
+  author?: Array<{ embeddable: boolean; href: string }> | undefined;
+  replies?: Array<{ embeddable: boolean; href: string }> | undefined;
+  "version-history"?: Array<{ count: number; href: string }> | undefined;
+  "predecessor-version"?: Array<{ id: number; href: string }> | undefined;
+  "wp:featuredmedia"?: Array<{ embeddable: boolean; href: string }> | undefined;
+  "wp:attachment"?: Array<{ href: string }> | undefined;
+  "wp:term"?:
+    | Array<{ taxonomy: string; embeddable: boolean; href: string }>
+    | undefined;
+  curies?:
+    | Array<{ name: string; href: string; templated: boolean }>
+    | undefined;
 }
 
 export interface Post {
@@ -117,17 +143,17 @@ export interface Post {
   content: Content;
   excerpt: Excerpt;
   author: number;
-  featuredMedia: number;
+  featuredMedia: number | undefined;
   commentStatus: string;
   pingStatus: string;
   sticky: boolean;
-  template: string;
-  format: string;
+  template?: string | undefined;
+  format?: string | undefined;
   meta: Meta;
   categories: number[];
   tags: number[];
   classList: string[];
-  yoastHead: string;
-  yoastHeadJson: YoastHead;
-  links: Links;
+  yoastHead?: string | undefined;
+  yoastHeadJson?: YoastHead | undefined;
+  links?: Links | undefined;
 }

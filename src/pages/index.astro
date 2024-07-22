@@ -1,6 +1,9 @@
 ---
-const WP_JSON = import.meta.env.PUBLIC_WP_JSON_API_URL
-console.log({ WP_JSON })
+import { fetchPostBySlug } from '../lib/services/postServices';
+const post = await fetchPostBySlug('looks-com-tenis-samba');
+if (!post) {
+	throw new Error('Post not found');
+}
 ---
 
 <html lang="en">
@@ -13,6 +16,9 @@ console.log({ WP_JSON })
 	</head>
 	<body>
 		<h1>Astro</h1>
-		{WP_JSON}
+		<main class="container">
+			<h1>{post.title.text}</h1>
+			<div class="content" set:html={post.content.html} />
+		</main>
 	</body>
 </html>
