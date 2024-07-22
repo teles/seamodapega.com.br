@@ -1,5 +1,6 @@
 ---
-
+const WP_JSON = import.meta.env.PUBLIC_WP_JSON_API_URL
+console.log({ WP_JSON })
 ---
 
 <html lang="en">
@@ -12,5 +13,6 @@
 	</head>
 	<body>
 		<h1>Astro</h1>
+		{WP_JSON}
 	</body>
 </html>
